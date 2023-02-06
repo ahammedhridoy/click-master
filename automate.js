@@ -6,5 +6,5 @@ const filePath = "./automate.js";
 
 simpleGit()
   .add([filePath])
-  .commit("[chore] automate updated", { "--date": "2023-01-30" })
+  .commit("[chore] automate updated", { "--date": "2023-02-07" })
   .push();
