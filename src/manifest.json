@@ -1,0 +1,51 @@
+{
+  "{{chrome}}.manifest_version": 3,
+  "{{firefox}}.manifest_version": 2,
+  "icons": {
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "48": "icon/48.png",
+    "96": "icon/96.png",
+    "128": "icon/128.png"
+  },
+  "{{chrome}}.action": {
+    "default_popup": "src/popup.html"
+  },
+  "{{firefox}}.browser_action": {
+    "default_popup": "src/popup.html"
+  },
+  "background": {
+    "{{chrome}}.service_worker": "src/background.ts",
+    "{{firefox}}.scripts": ["src/background.ts"]
+  },
+  "content_scripts": [
+    {
+      "js": ["src/scripts/content.ts"],
+      "run_at": "document_end",
+      "matches": [
+        "https://www.ticketmaster.co.uk/*",
+        "https://www.ticketmaster.com/event/*",
+        "https://www.ticketmaster.com/*/event/*",
+        "https://www.ticketmaster.co.uk/event/*",
+        "https://www.ticketmaster.oc.uk/*/event/*",
+
+        "https://concerts.livenation.com/event/*",
+        "https://concerts.livenation.ca/event/*",
+        "https://concerts.livenation.com/*/event/*",
+        "https://concerts.livenation.ca/*/event/*",
+
+        "https://www.livenation.com/event/*",
+        "https://www.livenation.com/*/event/*",
+        "https://www.livenation.ca/event/*",
+        "https://www.livenation.ca/*/event/*",
+
+        "https://queue.livenation.com/*",
+        "https://queue.livenation.ca/*",
+        "https://queue.ticketmaster.com/*",
+        "https://queue.ticketmaster.ca/*"
+      ]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "permissions": ["tabs", "activeTab", "storage", "alarms"]
+}
