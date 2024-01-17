@@ -1,4 +1,6 @@
 {
+  "name": "Click Master",
+  "description": "Ticket Collector Simple Cross platform Extension",
   "{{chrome}}.manifest_version": 3,
   "{{firefox}}.manifest_version": 2,
   "icons": {
@@ -15,8 +17,8 @@
     "default_popup": "src/popup.html"
   },
   "background": {
-    "{{chrome}}.service_worker": "src/background.ts",
-    "{{firefox}}.scripts": ["src/background.ts"]
+    "{{chrome}}.service_worker": "src/scripts/background.ts",
+    "{{firefox}}.scripts": ["src/scripts/background.ts"]
   },
   "content_scripts": [
     {
