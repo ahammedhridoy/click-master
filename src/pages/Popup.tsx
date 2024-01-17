@@ -19,8 +19,8 @@ export default function () {
         <img src={icon} alt="logo" className="w-14" />
         <h1 className="text-2xl font-semibold">{name}</h1>
       </div>
-      <div className="flex flex-col gap-4 justify-start items-center m-2 p-4 rounded-xl shadow-2xl bg-gray-800 backdrop-blur-3xl backdrop:blur-3xl">
-        <div className="flex w-full justify-between items-center text-lg">
+      <div className="flex flex-col gap-4 justify-start items-center m-2 p-4 rounded-xl shadow-2xl bg-gray-800 backdrop-blur-3xl backdrop:blur-3xl text-base">
+        <div className="flex w-full justify-between items-center ">
           <label htmlFor="maxTiket" className="font-mono">
             Select Max ticket
           </label>
@@ -43,12 +43,36 @@ export default function () {
             ))}
           </select>
         </div>
-        <div className="flex w-full justify-between items-center text-lg">
+        <div className="flex w-full justify-between items-center">
           <label
             htmlFor=""
             className="font-mono relative inline-flex items-center cursor-pointer"
           >
-            Real static
+            Realistic Click
+          </label>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" className="sr-only peer" />
+            <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          </label>
+        </div>
+        <div className="flex w-full justify-between items-center">
+          <label
+            htmlFor=""
+            className="font-mono relative inline-flex items-center cursor-pointer"
+          >
+            Same Seat Type
+          </label>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" className="sr-only peer" />
+            <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          </label>
+        </div>
+        <div className="flex w-full justify-between items-center">
+          <label
+            htmlFor=""
+            className="font-mono relative inline-flex items-center cursor-pointer"
+          >
+            "Next" Button Auto-Click
           </label>
           <label className="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" value="" className="sr-only peer" />
