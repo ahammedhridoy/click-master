@@ -1,7 +1,7 @@
 {
   "name": "click-master",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +10,11 @@
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
     "delegated-events": "^1.1.2",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "selector-observer": "^2.1.6"
+    "selector-observer": "^2.1.6",
+    "simple-git": "^3.22.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
