@@ -1,2 +1,6 @@
-export const urlPattern =
-  /^https:\/\/www\.ticketmaster\.[a-zA-Z]+\.[a-zA-Z]+\/[a-zA-Z0-9-]+\/event\/[a-zA-Z0-9]+$/;
+import Browser from "webextension-polyfill";
+
+export const sendMessage = async <T = any>(message: any) => {
+  const response = await Browser.runtime.sendMessage(message);
+  return response as T;
+};
