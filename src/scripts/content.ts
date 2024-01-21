@@ -11,17 +11,18 @@ observe("div#map-container", {
     add: () => observeContainerDiv(),
   }),
 });
+
 const observeContainerDiv = () => {
   const container = document.getElementById("map-container");
+  const polygons = document.querySelector(".polygons");
+  console.log("poly: ", polygons);
+
+  on("click", "path[data-section-name]", (event: any) => {
+    console.log("in", event);
+  });
+
   if (container) {
     container.appendChild(floatingContainer);
-    const $ = cheerio.load(`${container}`);
-    console.log("result", $("strong.sc-uysce3-8 .gkvGTU").text());
-
-    /** listen event */
-    on("click", "#map-container", (event) => {
-      console.log("event: ", event.target);
-    });
   }
 };
 
