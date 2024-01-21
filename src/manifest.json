@@ -23,6 +23,7 @@
   "content_scripts": [
     {
       "js": ["src/scripts/content.ts"],
+      "css": ["src/styles/index.css"],
       "run_at": "document_end",
       "matches": [
         "https://www.ticketmaster.co.uk/*",

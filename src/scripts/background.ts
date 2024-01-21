@@ -1,9 +1,14 @@
 import browser from "webextension-polyfill";
-const ticketmaster = "https://www.ticketmaster.co.uk";
 
-browser.runtime.onInstalled.addListener((details) => {
-  console.log(details);
-  browser.action.setBadgeText({
-    text: "OFF",
-  });
+browser.runtime.onMessage.addListener((message) => {
+  console.log(message);
+  if (message.status === "ON") {
+    browser.action.setBadgeText({
+      text: "ON",
+    });
+  } else {
+    browser.action.setBadgeText({
+      text: "OFF",
+    });
+  }
 });
