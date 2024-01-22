@@ -8,12 +8,9 @@ const box = `
 				<p class="clickmaster__AutoNext">Auto Next: <strong id="clickmaster__AutoNext">OFF</strong></p>
 			</div>
 			<!-- main text -->
-			<div class="clickmaster__main">
-				<h3 class="clickmaster__mainText">Main Focus</h3>
-				<p id="mainText">320</p>
-			</div>
+			<div class="clickmaster__main"></div>
 			<!-- show seats -->
-			<p class="clickmaster__totalSeats">Seats: <strong id="clickmaster__totalSeats">130</strong></p>
+			<p class="clickmaster__totalSeats">Seats: <strong id="clickmaster__totalSeatsNumber">--</strong></p>
 			<!-- cart erace button -->
 			<button type="button" id="eraseBtn">Erase Button</button>
 `;

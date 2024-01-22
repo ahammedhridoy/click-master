@@ -16,3 +16,8 @@ export const storage = {
     return;
   },
 };
+
+export const filterItem = <T = any>(arr: T[], query: string) => {
+  const finds: T | undefined = arr && arr.find((item: T) => item === query);
+  console.log("find result: ", finds);
+};

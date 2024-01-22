@@ -55,5 +55,5 @@
     }
   ],
   "{{chrome}}.host_permissions": ["<all_urls>"],
-  "permissions": ["tabs", "activeTab", "storage", "alarms", "nativeMessaging"]
+  "permissions": ["tabs", "activeTab", "storage", "alarms"]
 }
