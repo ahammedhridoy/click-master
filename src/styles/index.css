@@ -5,8 +5,8 @@
   top: 10px;
   left: 20px;
   z-index: 9999999999;
-  background: #01010296;
-  backdrop-filter: blur(30px);
+  background: #3264345e;
+  backdrop-filter: blur(100px);
   display: flex;
   padding: 10px;
   border-radius: 10px;

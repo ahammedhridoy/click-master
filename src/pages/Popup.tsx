@@ -13,27 +13,46 @@ export default function () {
   const [maxTicket, setMaxTicket] = useState<string>("6");
 
   useEffect(() => {
-    const { version, name } = browser.runtime.getManifest();
-    setVersion(version);
-    setName(name);
-
     const getStorageData = async () => {
-      const res = await storage.get([
-        "nextAutoClick",
-        "realistic",
-        "sameSeat",
-        "maxTicket",
-      ]);
-      setRealistic(res.realistic);
-      setSameSeat(res.sameSeat);
-      setNextAutoClick(res.nextAutoClick);
-      setMaxTicket(res.maxTicket);
+      const { maxTicket, nextAutoClick, realistic, sameSeat } =
+        await storage.get([
+          "nextAutoClick",
+          "realistic",
+          "sameSeat",
+          "maxTicket",
+        ]);
+      setRealistic(realistic);
+      setSameSeat(sameSeat);
+      setNextAutoClick(nextAutoClick);
+      setMaxTicket(maxTicket);
+      await browser.runtime.sendMessage({ change: true });
     };
     return () => {
       getStorageData();
     };
   }, [realistic, nextAutoClick, sameSeat, maxTicket]);
+  /** initial gets */
 
+  useEffect(() => {
+    const { version, name } = browser.runtime.getManifest();
+    setVersion(version);
+    setName(name);
+
+    const initalGet = async () => {
+      const { maxTicket, nextAutoClick, realistic, sameSeat } =
+        await storage.get([
+          "nextAutoClick",
+          "realistic",
+          "sameSeat",
+          "maxTicket",
+        ]);
+      setRealistic(realistic);
+      setSameSeat(sameSeat);
+      setNextAutoClick(nextAutoClick);
+      setMaxTicket(maxTicket);
+    };
+    initalGet();
+  }, []);
   return (
     <div className="w-[400px] h-full bg-gray-900 text-white p-2">
       <div className="flex justify-center items-center flex-col gap-2 mb-5">
@@ -48,10 +67,11 @@ export default function () {
           <select
             id="maxTicket"
             className="w-32 bg-gray-900 text-white border-2 border-gray-400 py-0.5 px-4 text-center"
-            defaultValue={maxTicket}
+            // defaultValue={maxTicket}
+            value={maxTicket}
             onChange={async (e: ChangeEvent<HTMLSelectElement>) => {
-              await storage.set("maxTicket", e.target.value);
               setMaxTicket(e.target.value);
+              await storage.set("maxTicket", e.target.value);
             }}
           >
             <option>Select</option>
@@ -74,8 +94,8 @@ export default function () {
               type="checkbox"
               checked={realistic}
               onChange={async (e) => {
-                await storage.set("realistic", e.target.checked);
                 setRealistic((state) => !state);
+                await storage.set("realistic", e.target.checked);
               }}
               className="sr-only peer"
             />
@@ -93,8 +113,8 @@ export default function () {
             <input
               type="checkbox"
               onChange={async (e) => {
-                await storage.set("sameSeat", e.target.checked);
                 setSameSeat((state) => !state);
+                await storage.set("sameSeat", e.target.checked);
               }}
               checked={sameSeat}
               className="sr-only peer"

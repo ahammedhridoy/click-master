@@ -3,9 +3,9 @@ const box = `
 			<h1>Click Master</h1>
 			<!-- controller -->
 			<div class="clickmaster__controler">
-				<p class="clickmaster__realClick">Real Click: <strong id="realClick">OFF</strong></p>
-				<p class="clickmaster__sameTime">Same Time: <strong id="realClick">OFF</strong></p>
-				<p class="clickmaster__AutoNext">Auto Next: <strong id="realClick">OFF</strong></p>
+				<p class="clickmaster__realClick">Real Click: <strong id="clickmaster__realClick">OFF</strong></p>
+				<p class="clickmaster__sameTime">Same Time: <strong id="clickmaster__sameTime">OFF</strong></p>
+				<p class="clickmaster__AutoNext">Auto Next: <strong id="clickmaster__AutoNext">OFF</strong></p>
 			</div>
 			<!-- main text -->
 			<div class="clickmaster__main">
@@ -13,7 +13,7 @@ const box = `
 				<p id="mainText">320</p>
 			</div>
 			<!-- show seats -->
-			<p class="clickmaster__totalSeats">Seats: <strong id="realClick">130</strong></p>
+			<p class="clickmaster__totalSeats">Seats: <strong id="clickmaster__totalSeats">130</strong></p>
 			<!-- cart erace button -->
 			<button type="button" id="eraseBtn">Erase Button</button>
 `;

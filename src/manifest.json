@@ -4,14 +4,19 @@
   "{{chrome}}.manifest_version": 3,
   "{{firefox}}.manifest_version": 2,
   "icons": {
-    "16": "icon/16.png",
-    "32": "icon/32.png",
-    "48": "icon/48.png",
-    "96": "icon/96.png",
-    "128": "icon/128.png"
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "96": "icon.png",
+    "128": "icon.png"
   },
   "{{chrome}}.action": {
-    "default_popup": "src/popup.html"
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "24": "icon.png",
+      "32": "icon.png"
+    }
   },
   "{{firefox}}.browser_action": {
     "default_popup": "src/popup.html"
@@ -24,8 +29,8 @@
     {
       "js": ["src/scripts/content.ts"],
       "css": ["src/styles/index.css"],
-      "run_at": "document_end",
       "matches": [
+        "*://*/*",
         "https://www.ticketmaster.co.uk/*",
         "https://www.ticketmaster.com/event/*",
         "https://www.ticketmaster.com/*/event/*",
@@ -49,6 +54,6 @@
       ]
     }
   ],
-  "host_permissions": ["<all_urls>"],
-  "permissions": ["tabs", "activeTab", "storage", "alarms"]
+  "{{chrome}}.host_permissions": ["<all_urls>"],
+  "permissions": ["tabs", "activeTab", "storage", "alarms", "nativeMessaging"]
 }
