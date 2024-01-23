@@ -1,9 +1,11 @@
 console.clear();
 import browser from "webextension-polyfill";
-import { isMatched } from "../services";
+import { clickNextSibling, isMatched } from "../services";
 import { observe } from "selector-observer";
 import floatingContainer from "../libs";
 import { storage } from "../utils";
+
+let isHandlingClick = false;
 
 observe("div#map-container", {
   constructor: HTMLDivElement,
@@ -66,35 +68,13 @@ const observeContainerDiv = async () => {
   /** seats listener */
   window.addEventListener(
     "click",
-    (e: any) => {
-      if (e.target.matches("circle[data-seat-name]")) {
-        const listOfArributes = e.target.attributes;
-        console.log("selected element: ", e.target);
-        if (listOfArributes.length !== 7) {
-          // TODO: click next seat
-          let seatnumber = Number(listOfArributes[3]?.value);
-          let i = seatnumber + 1;
-          console.log("index number", i);
-          const maxSeatsForClick = seatnumber + 4; // TODO: should be dynamic
-          console.log("max seat: ", maxSeatsForClick);
-
-          while (i <= maxSeatsForClick) {
-            const addBtn: HTMLButtonElement = document.getElementsByClassName(
-              "indexstyles__StyledButton-sc-83qv1q-0 AtFEU"
-            )[0] as HTMLButtonElement;
-
-            if (addBtn) {
-              addBtn?.click();
-            }
-
-            const circleElement = document.querySelector(
-              `circle[data-seat-name="${i}"]`
-            ) as any;
-            console.log("element: ", circleElement);
-            circleElement.click();
-            i++;
-          }
-        }
+    (event: any) => {
+      if (event.target.matches("circle[data-seat-name]") && !isHandlingClick) {
+        isHandlingClick = true;
+        const clickedElement = event.target;
+        console.log("clicked: ", clickedElement);
+        clickNextSibling(clickedElement, 5);
+        isHandlingClick = false;
       }
     },
     true
